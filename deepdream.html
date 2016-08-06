@@ -1,8 +1,22 @@
-{% extends "base.html" %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CaffeJS | DeepDream</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
-{% block title %}DeepDream{% endblock %}
+    <!-- Material Design Light -->
+    <link rel="stylesheet" href="libs/material.min.css">
+    <script src="libs/material.min.js"></script>
+    
+    <link rel="stylesheet" href="styles/docs.css">
 
-{% block header %}
+    
 <script src="libs/d3.min.js"></script>
 <script src="dist/caffe.js"></script>
 
@@ -14,9 +28,36 @@
     height: 8px;
   }
 </style>
-{% endblock %}
 
-{% block content %}
+  </head>
+  <body>
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">CaffeJS</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a target="_new" href="https://github.com/chaosmail/caffejs" class="mdl-navigation__link github">
+              <span>GitHub</span>
+            </a>
+          </nav>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">CaffeJS</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="models.html">Models</a>
+          <a class="mdl-navigation__link" href="webcam.html">Webcam</a>
+          <a class="mdl-navigation__link" href="deepdream.html">DeepDream</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          
 <div class="mdl-grid grid-container">
 
   <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
@@ -151,4 +192,9 @@
 
 </script>
 
-{% endblock %}
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
