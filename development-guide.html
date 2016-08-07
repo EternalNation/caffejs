@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>CaffeJS | Deep Learning Models</title>
+    <title>CaffeJS | Deep Learning in the Browser</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -17,21 +17,6 @@
     <link rel="stylesheet" href="styles/docs.css">
 
     
-<script src="libs/d3.min.js"></script>
-<script src="dist/caffe.js"></script>
-
-<!-- For drawing the graph -->
-<script src="libs/lodash.min.js"></script>
-<script src="libs/graphlib.core.min.js"></script>
-<script src="libs/dagre.core.min.js"></script>
-<script src="libs/dagre-d3.core.min.js"></script>
-<link rel="stylesheet" href="styles/graph.css">
-
-<style>
-
-</style>
-
-
   </head>
   <body>
     <!-- Always shows a header, even in smaller screens. -->
@@ -54,7 +39,7 @@
           <a class="mdl-navigation__link " href="development-guide.html">Development Guide</a>
           <div class="drawer-separator"></div>
           <span class="mdl-navigation__link" href="">Examples</span>
-          <a class="mdl-navigation__link is-active" href="models.html">Models</a>
+          <a class="mdl-navigation__link " href="models.html">Models</a>
           <a class="mdl-navigation__link " href="webcam.html">Webcam</a>
           <a class="mdl-navigation__link " href="deepdream.html">DeepDream</a>
         </nav>
@@ -62,54 +47,24 @@
       <main class="mdl-layout__content">
         <div class="page-content">
           
-<div class="mdl-grid grid-container">
-  <div class="mdl-card mdl-cell mdl-cell--12-col mdl-grid">
-    <div class="controls">
-      <select>
-        <option value="models/bvlc_alexnet/deploy.prototxt">AlexNet</option>
-        <option selected="selected" value="models/bvlc_googlenet/deploy.prototxt">GoogLeNet</option>
-        <option value="models/VGG_CNN_S/deploy.prototxt">VGG CNN S</option>
-        <option value="models/VGG_FACE/VGG_FACE_deploy.prototxt">VGG_FACE</option>
-        <option value="models/VGG_ILSVRC_19_layers/deploy.prototxt">VGG ILSVRC 19 layers</option>
-        <option value="models/nin_imagenet/deploy.prototxt">NiN</option>
-        <option value="models/ResNet/ResNet-50-deploy.prototxt">ResNet-50</option>
-        <option value="models/ResNet/ResNet-101-deploy.prototxt">ResNet-101</option>
-        <option value="models/ResNet/ResNet-152-deploy.prototxt">ResNet-152</option>  
-      </select>
-    </div>
-  </div>
-  <div class="mdl-cell mdl-cell--12-col">
-    <div class="model"></div>
-  </div>
-</div>
-
-<script language="JavaScript">
-
-function loadModel(url) {
-
-  // Let's create a new model from Caffe
-  var model = new Net.CaffeModel(url);
-  
-  model.load().then(function(d){
-    
-    // Debug the structure
-    model.debugStructure();
-
-    // Render the Graph structure
-    var dag = Utils.GraphDrawer.fromNet(model);
-    dag.render('.model', 900);
-  });
-}
-
-d3.select('.controls > select').on('change', function(){
-  var url = d3.select('.controls > select').property("value");
-  console.clear();
-  loadModel(url);
-});
-
-loadModel('models/bvlc_googlenet/deploy.prototxt');
-
-</script>
+<h1 id="caffejs-development-guide">CaffeJS - Development Guide</h1>
+<p>Please make sure you have Gulp, Typescript and Typings installed.</p>
+<p><code>npm install -g gulp-cli typescript typings</code></p>
+<h2 id="getting-started">Getting Started</h2>
+<p>Checkout the project and run <code>npm install</code> in the root directory to get started. Now you can start diving into the code.</p>
+<p>You can build your code running <code>gulp</code> or using the file watcher <code>gulp watch</code>.</p>
+<h3 id="organization-of-the-code">Organization of the code</h3>
+<p>This library uses Typescript to modularize JavaScript code and use some of the cool Typescript features on top, such as classes, inheritance, fat arrow functions, etc.</p>
+<p>You can find the source code in the <code>modules/</code> directory where I organize in 5 modules:</p>
+<ul>
+<li>Net - A fork of ConvNetJS with Caffe compatibility (considering model weights, output parameters, etc.); contains the ConvNetJS model <code>Net.Net</code>, the CaffeJS model <code>Net.CaffeModel</code>, the the Volume implementation <code>Net.Vol</code> and the layers <code>Net.Layers</code></li>
+<li>ImgJS - An image abstraction for JavaScript to avoid dealing with canvas elements and facilitate conversion to Volumes</li>
+<li>NumJS - An abstraction for operations on Arrays and Volumes</li>
+<li>Parser - A parser for converting Prototxt and Protobuf binaries into JavaScript objects</li>
+<li>Utils - An abstractions for utilities and visualizations, such as the GraphDrawer and ActivationDrawer</li>
+</ul>
+<h3 id="converting-caffemodel-files">Converting <code>*.caffemodel</code> files</h3>
+<p>You can use the script <code>scripts/convert_caffemodel.py</code> to convert <code>*.caffemodel</code> files to binary blobs which CaffeJS can load via http and parse. Unfortunately, you need to have <code>Caffe</code> and <code>pycaffe</code> installed to generate those files. You can as well download the prepared weights via running  <code>sh fetch_weights.sh</code> in the model directories.</p>
 
         </div>
       </main>

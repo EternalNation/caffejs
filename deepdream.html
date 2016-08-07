@@ -39,19 +39,16 @@
           <span class="mdl-layout-title">CaffeJS</span>
           <!-- Add spacer, to align navigation to the right -->
           <div class="mdl-layout-spacer"></div>
-          <!-- Navigation. We hide it in small screens. -->
-          <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a target="_new" href="https://github.com/chaosmail/caffejs" class="mdl-navigation__link github">
-              <span>GitHub</span>
-            </a>
-          </nav>
         </div>
+        <a target="_new" href="https://github.com/chaosmail/caffejs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
       </header>
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">CaffeJS</span>
         <nav class="mdl-navigation">
           <span class="mdl-navigation__link" href="">Documentation</span>
           <a class="mdl-navigation__link " href="index.html">Getting Started</a>
+          <a class="mdl-navigation__link " href="user-guide.html">User Guide</a>
+          <a class="mdl-navigation__link " href="development-guide.html">Development Guide</a>
           <div class="drawer-separator"></div>
           <span class="mdl-navigation__link" href="">Examples</span>
           <a class="mdl-navigation__link " href="models.html">Models</a>
@@ -69,12 +66,13 @@
       <h2 class="mdl-card__title-text">DeepDream in the Browser</h2>
     </div>
     <div class="mdl-card__supporting-text">
-      This page runs the famous DeepDream demo entirely in the browser using the pretrained GoogLeNet model from Caffe and CaffeJS (which is based on <a target="_new" href="http://convnetjs.com">ConvNetJS</a>). It's a JavaScript port from the <a target="_new" href="https://github.com/google/deepdream/blob/master/dream.ipynb">original DeepDream demo</a> and performs the computation using a CaffeJS model in a webworker task in your browser. This page including all models and resources is hosted as a static page on Github.
-      <em>Mordvintsev et al., Inceptionism: Going Deeper into Neural Networks, Google Research Blog, 2015</em>
+      <p>This page runs the famous DeepDream demo entirely in the browser using the pretrained GoogLeNet model from Caffe and CaffeJS (which is based on <a target="_new" href="http://convnetjs.com">ConvNetJS</a>). It's a JavaScript port from the <a target="_new" href="https://github.com/google/deepdream/blob/master/dream.ipynb">original DeepDream demo</a> and performs the computation using a CaffeJS model in a webworker task in your browser. This page including all models and resources is hosted as a static page on Github.</p>
+      <p>Debugging this demo: Go to the <em>Sources</em> panel in the Chrome Developer Tools and load the demo. You should see a webworker icon entitled with <em>deepdream_worker.js</em>. You can click on it and set your breakpoints as usual. Additionally, you could enable <em>DevTools for Services Workers</em> in the <em>Resources</em> panel.</p>
+      <p><em>Mordvintsev et al., Inceptionism: Going Deeper into Neural Networks, Google Research Blog, 2015</em></p>
     </div>
     <div class="mdl-card__actions mdl-card--border">
       <a href="https://research.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html" class="mdl-button mdl-js-button mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">
-        Blog<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+        Blogpost<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
     </div>
   </div>
 
@@ -97,7 +95,6 @@
           <option>inception_4c/output</option>   
           <option>inception_4d/output</option>   
           <option>inception_4e/output</option>   
-          <option>inception_5a/output</option>   
           <option>inception_5a/output</option>   
           <option>inception_5b/output</option> 
       </select>
