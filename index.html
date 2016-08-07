@@ -51,10 +51,7 @@
 <p>To run the samples, please execute <code>npm start</code> from the root directory. Make sure you updated all dependencies by running <code>npm install</code> beforehand.</p>
 <h3 id="analyze-deep-learning-structures">Analyze Deep Learning structures</h3>
 <p><a href="https://chaosmail.github.io/caffejs/models.html">The sample <code>models.html</code></a> loads famous Deep Learning Models such as AlexNet, VGG, GoogLeNet, etc. directly in your browser and visualizes the layer graph. It also analyzes their structure and prints detailed information such as the network dimension, number of parameters and network size in memory to the console.</p>
-<p>Here is a break-down of <strong>AlexNet</strong> computed with CaffeJS.</p>
-<blockquote>
-<p>the dimensions on the left side define the output dimensions of the current layer <code>d, h, w</code>. The memory size is computed using Float32 (4 byte).</p>
-</blockquote>
+<p>Here is a break-down of <strong>AlexNet</strong> computed with CaffeJS. The dimensions on the left side define the output dimensions of the current layer <code>d, h, w</code>. The memory size is computed using Float32 (4 byte).</p>
 <pre><code>3x227x227 :: INPUT data
 96x55x55 :: CONV conv1 96x11x11 Stride 4 Pad 0 =&gt; 34,944 parameters
 96x55x55 :: RELU relu1
